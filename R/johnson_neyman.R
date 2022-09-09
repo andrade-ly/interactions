@@ -169,6 +169,8 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
   modx <- quo_name(enexpr(modx))
   if (make.names(modx) != modx) modx <- bt(modx)
   if (modx == "NULL") {modx <- NULL}
+  
+  print(paste(fontxaxis,"something"))
 
   # Handling df argument
   if (df == "residual") {
@@ -572,8 +574,10 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
       ggplot2::scale_color_manual(name = "",
         values = c("Significant" = sig.color,
          "Insignificant" = insig.color), guide = "none") +
-      theme_apa(legend.pos = "right", legend.font.size = 10,
-                 x.font.size = fontxaxis, y.font.size = fontyaxis) +
+      theme_apa(legend.pos = "right", 
+                legend.font.size = 10,
+                 x.font.size = fontxaxis, 
+                y.font.size = fontyaxis) +
 
       ggplot2::theme(legend.key.size = ggplot2::unit(1, "lines"))
 
