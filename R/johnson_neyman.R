@@ -161,7 +161,7 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
                            critical.t = NULL, sig.color = "#00BFC4",
                            insig.color = "#F8766D", mod.range = NULL,
                            title = "Johnson-Neyman plot", y.label = NULL,
-                           modx.label = NULL, fontxaxis = 12, fontyaxis = 12) {
+                           modx.label = NULL, fontsize = 6) {
 
   # Evaluate the modx, mod2, pred args
   pred <- quo_name(enexpr(pred))
@@ -579,7 +579,7 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
                  x.font.size = fontxaxis, 
                 y.font.size = fontyaxis) +
 
-      ggplot2::theme(legend.key.size = ggplot2::unit(1, "lines"))
+      ggplot2::theme(legend.key.size = ggplot2::unit(1, "lines"), axis.text=element_text(size=fontsize))
 
     # Let users relabel the axis without changing source data
     if (!is.null(y.label)) {
