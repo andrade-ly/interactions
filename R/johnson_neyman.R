@@ -161,7 +161,7 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
                            critical.t = NULL, sig.color = "#00BFC4",
                            insig.color = "#F8766D", mod.range = NULL,
                            title = "Johnson-Neyman plot", y.label = NULL,
-                           modx.label = NULL) {
+                           modx.label = NULL, x.font = 12, y.font = 12) {
 
   # Evaluate the modx, mod2, pred args
   pred <- quo_name(enexpr(pred))
@@ -573,6 +573,10 @@ johnson_neyman <- function(model, pred, modx, vmat = NULL, alpha = 0.05,
         values = c("Significant" = sig.color,
          "Insignificant" = insig.color), guide = "none") +
       theme_apa(legend.pos = "right", legend.font.size = 10) +
+  
+      theme(axis.text.x = element_text(size = x.font)) + 
+  
+      theme(axis.text.y = element_text(size = y.font)) + 
 
       ggplot2::theme(legend.key.size = ggplot2::unit(1, "lines"))
 
